@@ -15,11 +15,11 @@
 
             <Entry 
                     x:Name="EntryUserEmail"
-                    Placeholder="Email" Text="ashishsurti0910@gmail.com">
+                    Placeholder="Email" Tex>
             </Entry>
             <Entry 
                     x:Name="EntryPassword"
-                   Placeholder="Password" IsPassword="true" Text="Ashu@1909">
+                   Placeholder="Password" IsPassword="true" >
             </Entry>
 
             <Button x:Name="SignInButton"
