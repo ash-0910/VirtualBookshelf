@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VirtualBookshelf.App">
+    <Application.Resources>
+
+        <Style TargetType="StackLayout" x:Key="innerstack">
+            <Setter Property="Spacing" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+
+        </Style>
+
+        <Style TargetType="StackLayout" x:Key="mainstack">
+            <Setter Property="Spacing" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+
+        </Style>
+
+    </Application.Resources>
+</Application>

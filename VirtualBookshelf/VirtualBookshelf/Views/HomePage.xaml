@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VirtualBookshelf.Views.HomePage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:xct ="http://xamarin.com/schemas/2020/toolkit"
+             >
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout" Clicked="ToolbarItem_Clicked" />
+        <ToolbarItem IconImageSource="simplesearch.png" x:Name="searchIcon" Clicked="searchIcon_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+
+
+        <StackLayout Margin="0,10,0,0">
+
+            <Label Text="My Books List" TextColor="Teal" HorizontalOptions="Center" FontSize="Large" VerticalOptions="Center"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+
+                <Label Text="Filter Items:" TextColor="Black" FontSize="Medium"
+               VerticalOptions="Center" HorizontalOptions="End"/>
+                <Picker Title="Choose option"
+                             x:Name="ownedpicker" SelectedIndexChanged="ownedpicker_SelectedIndexChanged" HorizontalOptions="End" VerticalOptions="Center" >
+
+                </Picker>
+
+
+            </StackLayout>
+
+            <BoxView Color="Gray"
+             HeightRequest="2"
+             HorizontalOptions="Fill" />
+            <ListView
+                x:Name="BooksListView" HasUnevenRows="True" IsPullToRefreshEnabled="True"
+                VerticalScrollBarVisibility="Never"
+                      HorizontalScrollBarVisibility="Never"
+                SeparatorColor="Transparent"
+               
+                >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell 
+                                 >
+                            <SwipeView >
+                                <SwipeView.LeftItems>
+                                    <SwipeItem Text="Not Owned" BackgroundColor="AliceBlue" x:Name="notOwned" CommandParameter="{Binding .}" 
+                                               Invoked="notOwned_Invoked"/>
+                                </SwipeView.LeftItems>
+                                <SwipeView.RightItems >
+                                    <SwipeItem Text="Owned" BackgroundColor="LightSeaGreen" x:Name="owned" CommandParameter="{Binding .}" 
+                                               Invoked="owned_Invoked" />
+                                </SwipeView.RightItems>
+                                <StackLayout>
+                                    <Frame BorderColor="Gray"
+                                         CornerRadius="10"
+                                             Padding="10"
+                                           Margin="5">
+                                        <StackLayout>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" >
+                                                <ffimageloading:CachedImage VerticalOptions="Center"
+                                                            WidthRequest="50" HeightRequest="70"
+                                                            DownsampleToViewSize="true"
+                                                            Source="{Binding imagelink}">
+                                                </ffimageloading:CachedImage>
+                                                <StackLayout Orientation="Vertical" Padding="8" VerticalOptions="Center">
+                                                    <Label Text="{Binding title}" FontAttributes="Bold" TextColor="Black" />
+                                                    <Label Text="{Binding author}"  />
+                                                    <Label Text="{Binding isOwned}" TextColor="Coral" />
+                                                </StackLayout>
+                                                <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" Padding="3" VerticalOptions="CenterAndExpand">
+                                                    <Image x:Name="deleteimage" HeightRequest="30" WidthRequest="30" Source="delete.png" VerticalOptions="Center" HorizontalOptions="End">
+                                                  
+                                                    </Image>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer  Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding selflink}"/>
+                                                    </StackLayout.GestureRecognizers>
+
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                                <Label HorizontalOptions="End" Text="view summary" FontSize="Medium" TextColor="CadetBlue"/>
+                                                <Image x:Name="arrowRight" HeightRequest="30" WidthRequest="30" Source="arrowRight.png" VerticalOptions="Center" HorizontalOptions="End"/>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="summaryTapped"  Tapped="summaryTapped_Tapped"  CommandParameter="{Binding selflink}"/>
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+
+
+                            </SwipeView>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+
+    
+   
+</ContentPage>

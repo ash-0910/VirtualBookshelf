@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VirtualBookshelf.Views.BooksSearchPage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Enter title of the book" TextColor="Black"/>
+            <Entry x:Name="searchentry"/>
+            <Label Text="Enter author name (Optional)" TextColor="Black"/>
+            <Entry x:Name="authorSearchEntry"/>
+            <Button 
+        BackgroundColor="CadetBlue"
+        Text="Search" 
+        TextColor="White"
+        Image="simplesearch2.png"         
+        BorderColor="Black" 
+        BorderWidth="1"
+                x:Name="searchBtn" Clicked="searchBtn_Clicked" Margin="10,0,10,0" />
+            <ListView Margin="3" SeparatorColor="AliceBlue" 
+                x:Name="BooksListView" HasUnevenRows="True" ItemTapped="BooksListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Margin="4" Padding="5">
+                                <ffimageloading:CachedImage VerticalOptions="Center"
+                                                            WidthRequest="50" HeightRequest="70"
+                                                            DownsampleToViewSize="true"
+                                                            Source="{Binding smallThumbnail}">
+                                </ffimageloading:CachedImage>
+                                <StackLayout Orientation="Vertical" Padding="8" VerticalOptions="Center">
+                                <Label Text="{Binding title}" FontAttributes="Bold" TextColor="Black" />
+                                    <Label Text="{Binding authorString}"  />
+                            </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

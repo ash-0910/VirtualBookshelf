@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VirtualBookshelf.Views.BookDetailPage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             >
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="bookTitle" FontSize="20" TextColor="Black" HorizontalOptions="Center" Margin="0,5,0,0"/>
+                <Frame BorderColor="Gray" CornerRadius="10"
+                    Padding="10" Margin="30,5,30,5">
+                    <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="Center"
+			WidthRequest="300" HeightRequest="300"
+			DownsampleToViewSize="true"
+			x:Name="bookimage">
+                    </ffimageloading:CachedImage>
+                </Frame>
+                <BoxView Color="Gray"
+             HeightRequest="2"
+             HorizontalOptions="Fill" />
+
+                <Frame BorderColor="Gray" CornerRadius="5"
+                    Margin="5,5,5,5">
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Author:" TextColor="Black" FontAttributes="Bold"/>
+                            <Label x:Name="bookAuthors" FontAttributes="Italic"/>
+                        </StackLayout>
+
+                   
+                </Frame>
+
+                <Frame BorderColor="Gray" CornerRadius="5"
+                    Margin="5,5,5,5">
+
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Description:" TextColor="Black" FontAttributes="Bold"/>
+                        <BoxView Color="Gray"
+                                        HeightRequest="1"
+                                         HorizontalOptions="Fill" />
+                        <Label x:Name="bookDescription" FontAttributes="Italic"/>
+                    </StackLayout>
+
+
+                </Frame>
+
+                <Button 
+                    BackgroundColor="CadetBlue"
+                    Text="Add to list" 
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    Image="addimage50.png"         
+                    BorderColor="Black" 
+                    BorderWidth="1"
+                    x:Name="addToListBtn" Clicked="addToListBtn_Clicked" Margin="10,0,10,10" />
+
+         
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

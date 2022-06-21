@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VirtualBookshelf.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource mainstack}" VerticalOptions="Center">
+
+            <Label 
+                Text="Virtual Bookshelf"
+                FontSize="30"
+                HorizontalOptions="CenterAndExpand"
+                Margin="0,0,0,20"
+                TextColor="DarkCyan"/>
+
+
+            <Entry 
+                    x:Name="EntryUserEmail"
+                    Placeholder="Email" Text="ashishsurti0910@gmail.com">
+            </Entry>
+            <Entry 
+                    x:Name="EntryPassword"
+                   Placeholder="Password" IsPassword="true" Text="Ashu@1909">
+            </Entry>
+
+            <Button x:Name="SignInButton"
+               
+                    Text="Sign in"
+                    Clicked="SignInButton_Clicked"
+                    HeightRequest="54"
+                    BackgroundColor="DodgerBlue"/>
+
+
+            <Button x:Name="SignUpButton"
+               
+                    Text="Create Account"
+                    Clicked="SignUpButton_Clicked"
+                    TextColor="DodgerBlue"
+                    BackgroundColor="Transparent"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
